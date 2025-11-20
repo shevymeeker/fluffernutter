@@ -8,7 +8,10 @@
 
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#0f2b46">
-    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="apple-touch-icon" href="mascot.png">
+    <link rel="icon" type="image/png" href="mascot.png">
+
+    <meta property="og:image" content="https://yourdomain.com/mascot.png">
 
     <script type="application/ld+json">
     {
@@ -33,8 +36,8 @@
     </script>
 
     <style>
-        /* MODERN CLUTTER BUSTERS 2025 */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+        /* STREAMLINED CLUTTER BUSTERS 2025 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
 
         :root {
             --primary: #0f2b46;
@@ -42,9 +45,6 @@
             --light: #f8f9fa;
             --dark: #1a1a1a;
             --gray: #6c757d;
-            --white: #ffffff;
-            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
-            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
         }
 
         * {
@@ -58,33 +58,26 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        /* MODERN NAVIGATION */
+        /* NAVIGATION */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(15, 43, 70, 0.95);
             backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            box-shadow: var(--shadow);
+            padding: 0.75rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            transition: all 0.3s;
-        }
-
-        nav.scrolled {
-            padding: 0.5rem 2rem;
-            background: rgba(15, 43, 70, 0.98);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -93,8 +86,8 @@
 
         .logo {
             color: white;
-            font-size: 1.5rem;
-            font-weight: 900;
+            font-size: 1.3rem;
+            font-weight: 800;
             text-decoration: none;
             letter-spacing: -0.5px;
         }
@@ -110,45 +103,18 @@
             color: white;
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s;
-            position: relative;
+            font-size: 0.9rem;
+            transition: color 0.2s;
         }
 
         .nav-links a:hover {
             color: var(--accent);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
         .nav-cta {
             background: var(--accent);
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: 6px;
-            font-weight: 700;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(230, 57, 70, 0.4);
-        }
-
-        .nav-cta::after {
-            display: none;
         }
 
         .mobile-menu-btn {
@@ -160,58 +126,65 @@
             cursor: pointer;
         }
 
-        /* HERO SECTION WITH CAROUSEL */
-        .hero {
-            margin-top: 70px;
+        /* HEADER/HERO */
+        header {
             background: linear-gradient(135deg, var(--primary) 0%, #1a3a5a 100%);
             color: white;
-            padding: 4rem 2rem;
-            position: relative;
-            overflow: hidden;
+            text-align: center;
+            padding: 6rem 2rem 3rem;
+            margin-top: 55px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".1" fill="%23ffffff"/></svg>') no-repeat bottom;
-            background-size: cover;
-            opacity: 0.1;
-        }
-
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
+        header img {
+            width: 150px;
+            height: auto;
             margin-bottom: 1rem;
-            line-height: 1.1;
-            letter-spacing: -2px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
         }
 
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            max-width: 600px;
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* CAROUSEL */
+        .carousel-section {
+            background: white;
+            padding: 3rem 2rem;
         }
 
         .carousel-container {
             position: relative;
-            max-width: 1200px;
-            margin: 3rem auto 0;
-            height: 400px;
+            max-width: 1000px;
+            margin: 0 auto;
+            height: 350px;
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .carousel-slide {
@@ -219,7 +192,7 @@
             width: 100%;
             height: 100%;
             opacity: 0;
-            transition: opacity 0.6s ease-in-out;
+            transition: opacity 0.5s;
             background-size: cover;
             background-position: center;
             display: flex;
@@ -232,12 +205,17 @@
         }
 
         .carousel-placeholder {
-            background: linear-gradient(135deg, rgba(230,57,70,0.8), rgba(15,43,70,0.8));
-            font-size: 2rem;
+            background: linear-gradient(135deg, rgba(230,57,70,0.9), rgba(15,43,70,0.9));
+            font-size: 1.5rem;
             font-weight: 700;
             color: white;
             text-align: center;
             padding: 2rem;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .carousel-dots {
@@ -246,13 +224,13 @@
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: 8px;
             z-index: 10;
         }
 
         .dot {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background: rgba(255,255,255,0.5);
             cursor: pointer;
@@ -263,318 +241,134 @@
             background: white;
         }
 
-        /* MASCOT CHARACTER WITH PHOTO UPLOAD */
-        .mascot-section {
-            padding: 4rem 2rem;
+        /* QUOTE SECTION WITH MASCOT */
+        .quote-section {
+            padding: 3rem 2rem;
             background: linear-gradient(180deg, var(--light) 0%, #e8eef3 100%);
-            position: relative;
         }
 
-        .mascot-container {
-            max-width: 900px;
+        .quote-container {
+            max-width: 700px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+            text-align: center;
         }
 
-        .section-header {
-            text-align: center;
+        .quote-container h2 {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .phone-display {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
             margin-bottom: 2rem;
         }
 
-        .section-header h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -1px;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--gray);
-        }
-
-        /* BLOCKY MASCOT CHARACTER */
-        .mascot-character {
-            position: relative;
-            width: 100%;
+        .mascot-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             max-width: 500px;
             margin: 0 auto;
         }
 
-        .character-body {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0;
-        }
-
-        /* Head */
-        .character-head {
+        .mascot-image {
             width: 200px;
-            height: 180px;
-            background: var(--primary);
-            border-radius: 20px 20px 0 0;
-            position: relative;
-            box-shadow: var(--shadow-lg);
-            border: 6px solid var(--dark);
+            height: auto;
+            margin: 0 auto 1.5rem;
+            display: block;
         }
 
-        .character-eyes {
-            display: flex;
-            gap: 40px;
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .eye {
-            width: 30px;
-            height: 35px;
-            background: white;
-            border-radius: 50% 50% 45% 45%;
-            border: 4px solid var(--dark);
-            position: relative;
-        }
-
-        .pupil {
-            width: 12px;
-            height: 12px;
-            background: var(--dark);
-            border-radius: 50%;
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .character-smile {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 40px;
-            border: 5px solid var(--dark);
-            border-top: none;
-            border-radius: 0 0 60px 60px;
-        }
-
-        /* Hard Hat */
-        .hard-hat {
-            position: absolute;
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 220px;
-            height: 60px;
-            background: var(--accent);
-            border-radius: 50% 50% 0 0;
-            border: 6px solid var(--dark);
-            box-shadow: var(--shadow);
-        }
-
-        .hard-hat::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 25px;
-            background: var(--accent);
-            border-radius: 50% 50% 0 0;
-            border: 6px solid var(--dark);
-            border-bottom: none;
-        }
-
-        /* Body with integrated form */
-        .character-torso {
-            width: 280px;
-            min-height: 400px;
-            background: var(--accent);
-            border-radius: 0 0 30px 30px;
-            position: relative;
-            box-shadow: var(--shadow-lg);
-            border: 6px solid var(--dark);
-            border-top: none;
-            padding: 2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .torso-stripe {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 100%;
-            background: rgba(15, 43, 70, 0.2);
-            border-left: 4px solid var(--dark);
-            border-right: 4px solid var(--dark);
-        }
-
-        /* Arms */
-        .character-arms {
-            position: absolute;
-            top: 200px;
-            width: 400px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            justify-content: space-between;
-            pointer-events: none;
-        }
-
-        .arm {
-            width: 60px;
-            height: 140px;
-            background: var(--accent);
-            border: 6px solid var(--dark);
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-        }
-
-        .arm.left {
-            transform: rotate(-20deg);
-            transform-origin: top center;
-        }
-
-        .arm.right {
-            transform: rotate(20deg);
-            transform-origin: top center;
-        }
-
-        /* Form inside character */
-        .character-form {
-            position: relative;
-            z-index: 10;
-            width: 100%;
+        .quote-form {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            margin-top: 1rem;
         }
 
-        .character-form h3 {
-            color: white;
+        .quote-form h3 {
             font-size: 1.3rem;
-            font-weight: 900;
-            text-align: center;
+            color: var(--primary);
             margin-bottom: 0.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .form-input {
             width: 100%;
-            padding: 0.8rem;
-            border: 4px solid var(--dark);
+            padding: 0.9rem;
+            border: 2px solid #e0e0e0;
             border-radius: 8px;
             font-size: 1rem;
-            font-weight: 600;
             font-family: 'Inter', sans-serif;
-            background: white;
-            transition: transform 0.2s;
+            transition: border-color 0.2s;
         }
 
         .form-input:focus {
             outline: none;
-            transform: scale(1.02);
-            box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
-        }
-
-        .photo-btn-wrapper {
-            position: relative;
+            border-color: var(--primary);
         }
 
         .photo-upload-label {
             display: block;
             background: var(--primary);
             color: white;
-            padding: 1rem;
+            padding: 0.9rem;
             border-radius: 8px;
-            border: 4px solid var(--dark);
             font-weight: 700;
             text-align: center;
             cursor: pointer;
-            transition: transform 0.2s, background 0.3s;
-            font-size: 1.1rem;
+            transition: background 0.2s;
         }
 
         .photo-upload-label:hover {
             background: #1a3a5a;
-            transform: translateY(-2px);
-        }
-
-        .photo-upload-label:active {
-            transform: translateY(0);
         }
 
         .file-input-hidden {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            height: 0;
+            display: none;
         }
 
         .file-count {
             text-align: center;
-            color: white;
-            font-weight: 600;
-            min-height: 20px;
+            color: var(--gray);
             font-size: 0.9rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            min-height: 20px;
         }
 
         .submit-btn {
-            background: white;
-            color: var(--accent);
-            border: 4px solid var(--dark);
+            background: var(--accent);
+            color: white;
+            border: none;
             padding: 1rem;
             border-radius: 8px;
-            font-weight: 900;
-            font-size: 1.2rem;
+            font-weight: 700;
+            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: background 0.2s;
             font-family: 'Inter', sans-serif;
         }
 
         .submit-btn:hover {
-            background: var(--dark);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            background: #d62839;
         }
 
-        .submit-btn:active {
-            transform: translateY(0);
-        }
-
-        .quick-contact-btns {
+        .quick-btns {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .quick-btn {
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            border: 4px solid var(--dark);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-decoration: none;
-            transition: all 0.2s;
-            box-shadow: var(--shadow);
+            transition: transform 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -588,87 +382,83 @@
         .quick-btn.text {
             background: white;
             color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .quick-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
         }
 
-        /* SERVICES SECTION */
+        /* SERVICES */
         .services-section {
-            padding: 5rem 2rem;
+            padding: 3rem 2rem;
             background: white;
         }
 
         .services-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray);
+            margin-bottom: 2rem;
         }
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
         }
 
         .service-card {
             background: white;
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
-            border: 3px solid var(--primary);
+            border: 2px solid #e0e0e0;
             text-align: center;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transition: transform 0.3s;
+            transition: all 0.2s;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .service-card:hover::before {
-            transform: scaleX(1);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .service-card h3 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             color: var(--primary);
             font-weight: 700;
         }
 
-        /* FAQ SECTION */
+        /* FAQ */
         .faq-section {
-            padding: 5rem 2rem;
+            padding: 3rem 2rem;
             background: var(--light);
         }
 
         .faq-container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
         .faq-item {
             background: white;
             margin-bottom: 1rem;
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
             border: 2px solid #e0e0e0;
-            transition: all 0.3s;
+            transition: border-color 0.2s;
         }
 
         .faq-item:hover {
@@ -677,11 +467,11 @@
 
         .faq-question {
             width: 100%;
-            padding: 1.5rem;
+            padding: 1.2rem;
             background: none;
             border: none;
             text-align: left;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 700;
             color: var(--primary);
             cursor: pointer;
@@ -689,18 +479,12 @@
             justify-content: space-between;
             align-items: center;
             font-family: 'Inter', sans-serif;
-            transition: background 0.3s;
-        }
-
-        .faq-question:hover {
-            background: var(--light);
         }
 
         .faq-icon {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--accent);
             transition: transform 0.3s;
-            font-weight: 700;
         }
 
         .faq-item.active .faq-icon {
@@ -711,63 +495,61 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out, padding 0.3s;
-            padding: 0 1.5rem;
+            padding: 0 1.2rem;
         }
 
         .faq-item.active .faq-answer {
             max-height: 500px;
-            padding: 0 1.5rem 1.5rem;
+            padding: 0 1.2rem 1.2rem;
         }
 
         .faq-answer p {
             color: var(--gray);
-            line-height: 1.8;
+            line-height: 1.7;
         }
 
-        /* CONTACT SECTION */
+        /* CONTACT */
         .contact-section {
-            padding: 5rem 2rem;
+            padding: 3rem 2rem;
             background: var(--primary);
             color: white;
         }
 
         .contact-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
         .contact-info h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            font-weight: 900;
+            font-weight: 800;
         }
 
         .contact-info p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             opacity: 0.9;
         }
 
         .contact-details {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            font-size: 1.1rem;
+            gap: 0.8rem;
         }
 
         .contact-item a {
             color: white;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: color 0.2s;
         }
 
         .contact-item a:hover {
@@ -776,90 +558,80 @@
 
         .contact-form {
             background: rgba(255,255,255,0.1);
-            padding: 2rem;
+            padding: 1.5rem;
             border-radius: 12px;
             backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
         }
 
         .contact-form h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
             font-weight: 700;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.8rem;
-            border: 2px solid rgba(255,255,255,0.3);
-            background: rgba(255,255,255,0.9);
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 0.7rem;
+            border: none;
+            background: rgba(255,255,255,0.95);
+            border-radius: 6px;
+            font-size: 0.95rem;
             font-family: 'Inter', sans-serif;
-            transition: border 0.3s;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--accent);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 100px;
         }
 
         .form-submit {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem;
             background: var(--accent);
             color: white;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: background 0.2s;
             font-family: 'Inter', sans-serif;
         }
 
         .form-submit:hover {
             background: #d62839;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         /* FOOTER */
         footer {
             background: var(--dark);
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 2.5rem 2rem 1rem;
         }
 
         .footer-content {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
             color: var(--accent);
             font-weight: 700;
         }
@@ -868,8 +640,9 @@
         .footer-section a {
             color: rgba(255,255,255,0.8);
             text-decoration: none;
-            line-height: 1.8;
+            line-height: 1.7;
             display: block;
+            font-size: 0.9rem;
         }
 
         .footer-section a:hover {
@@ -877,19 +650,19 @@
         }
 
         .business-info {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             line-height: 1.6;
         }
 
         .footer-bottom {
             border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             text-align: center;
             color: rgba(255,255,255,0.6);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* MOBILE RESPONSIVE */
+        /* MOBILE */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -903,22 +676,17 @@
                 height: 250px;
             }
 
-            .character-arms {
-                display: none;
+            header {
+                padding: 5rem 1.5rem 2.5rem;
             }
 
-            .quick-contact-btns {
+            .quick-btns {
                 flex-direction: column;
-                width: 100%;
             }
 
             .quick-btn {
                 width: 100%;
                 justify-content: center;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -933,113 +701,85 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#get-quote">Get Quote</a></li>
                 <li><a href="#faq">FAQ</a></li>
-                <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+                <li><a href="#contact" class="nav-cta">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Clear the Clutter.<br>Reclaim Your Space.</h1>
-            <p>Professional junk removal, demolition, and property services in Owensboro, KY. Fast, reliable, and affordable.</p>
+    <!-- HEADER -->
+    <header id="home">
+        <img src="mascot.png" alt="8-bit Clutter Busters Mascot">
+        <h1>Clutter Busters</h1>
+        <p class="subtitle">Junk Removal & Property Services</p>
+        <a href="tel:2703152503" class="cta-button">📞 Call (270) 315-2503</a>
+    </header>
 
-            <div class="carousel-container">
-                <div class="carousel-slide active">
-                    <div class="carousel-placeholder">
-                        Before & After: Garage Cleanout
-                    </div>
+    <!-- CAROUSEL -->
+    <section class="carousel-section">
+        <div class="carousel-container">
+            <div class="carousel-slide active">
+                <div class="carousel-placeholder">
+                    Before & After: Garage Cleanout
                 </div>
-                <div class="carousel-slide">
-                    <div class="carousel-placeholder">
-                        Demolition Project Complete
-                    </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-placeholder">
+                    Demolition Project Complete
                 </div>
-                <div class="carousel-slide">
-                    <div class="carousel-placeholder">
-                        Full Property Cleanout
-                    </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="carousel-placeholder">
+                    Full Property Cleanout
                 </div>
-                <div class="carousel-dots">
-                    <span class="dot active" onclick="goToSlide(0)"></span>
-                    <span class="dot" onclick="goToSlide(1)"></span>
-                    <span class="dot" onclick="goToSlide(2)"></span>
-                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
             </div>
         </div>
     </section>
 
-    <!-- MASCOT WITH PHOTO UPLOAD -->
-    <section class="mascot-section" id="get-quote">
-        <div class="section-header">
-            <h2>Get Your FREE Quote Instantly</h2>
-            <p class="phone-display" style="font-size: 1.8rem; font-weight: 700; color: var(--accent);">(270) 315-2503</p>
-        </div>
+    <!-- QUOTE SECTION -->
+    <section class="quote-section" id="get-quote">
+        <div class="quote-container">
+            <h2>Get Your FREE Quote</h2>
+            <p class="phone-display">(270) 315-2503</p>
 
-        <div class="mascot-container">
-            <div class="mascot-character">
-                <div class="character-body">
-                    <!-- Head -->
-                    <div class="character-head">
-                        <div class="hard-hat"></div>
-                        <div class="character-eyes">
-                            <div class="eye">
-                                <div class="pupil"></div>
-                            </div>
-                            <div class="eye">
-                                <div class="pupil"></div>
-                            </div>
-                        </div>
-                        <div class="character-smile"></div>
-                    </div>
+            <div class="mascot-card">
+                <img src="mascot.png" alt="Clutter Busters Mascot" class="mascot-image">
 
-                    <!-- Torso with Form -->
-                    <div class="character-torso">
-                        <div class="torso-stripe"></div>
+                <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote-form">
+                    <input type="hidden" name="form-name" value="photo-quote" />
 
-                        <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="character-form">
-                            <input type="hidden" name="form-name" value="photo-quote" />
+                    <h3>Send a Pic, Get a Quote!</h3>
 
-                            <h3>Send a Pic, Get a Quote!</h3>
+                    <input type="tel" name="customer-phone" placeholder="Your Phone Number" class="form-input" required />
 
-                            <input type="tel" name="customer-phone" placeholder="Your Phone Number" class="form-input" required />
+                    <label for="photos" class="photo-upload-label">
+                        📸 Choose Photos
+                    </label>
+                    <input type="file" id="photos" name="photos" accept="image/*" multiple capture="environment" class="file-input-hidden" required />
 
-                            <div class="photo-btn-wrapper">
-                                <label for="photos" class="photo-upload-label">
-                                    📸 Choose Photos
-                                </label>
-                                <input type="file" id="photos" name="photos" accept="image/*" multiple capture="environment" class="file-input-hidden" required />
-                            </div>
+                    <div class="file-count" id="fileCount"></div>
 
-                            <div class="file-count" id="fileCount"></div>
-
-                            <button type="submit" class="submit-btn">GET MY QUOTE!</button>
-                        </form>
-                    </div>
-
-                    <!-- Arms -->
-                    <div class="character-arms">
-                        <div class="arm left"></div>
-                        <div class="arm right"></div>
-                    </div>
-                </div>
+                    <button type="submit" class="submit-btn">GET MY QUOTE!</button>
+                </form>
             </div>
 
-            <div class="quick-contact-btns">
+            <div class="quick-btns">
                 <a href="tel:2703152503" class="quick-btn call">📞 Call Now</a>
                 <a href="sms:2703152503&body=Hi! I need a quote for junk removal." class="quick-btn text">💬 Text Me</a>
             </div>
         </div>
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES -->
     <section class="services-section" id="services">
         <div class="services-container">
-            <div class="section-header">
-                <h2>What We Do</h2>
-                <p>Full-service junk removal and property services</p>
-            </div>
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">Full-service junk removal and property services</p>
 
             <div class="services-grid">
                 <div class="service-card">
@@ -1070,13 +810,11 @@
         </div>
     </section>
 
-    <!-- FAQ SECTION -->
+    <!-- FAQ -->
     <section class="faq-section" id="faq">
         <div class="faq-container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Everything you need to know</p>
-            </div>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know</p>
 
             <div class="faq-item">
                 <button class="faq-question">
@@ -1140,7 +878,7 @@
         </div>
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- CONTACT -->
     <section class="contact-section" id="contact">
         <div class="contact-container">
             <div class="contact-info">
@@ -1219,7 +957,7 @@
                     <p><strong>License #:</strong> KY-CB-2025-001</p>
                     <p><strong>EIN:</strong> XX-XXXXXXX</p>
                     <p><strong>Insured & Bonded</strong></p>
-                    <p style="margin-top: 1rem; font-size: 0.8rem; opacity: 0.7;">*Replace with actual license/EIN numbers</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.75rem; opacity: 0.7;">*Replace with actual license/EIN numbers</p>
                 </div>
             </div>
 
@@ -1227,13 +965,13 @@
                 <h4>Contact</h4>
                 <a href="tel:2703152503">(270) 315-2503</a>
                 <a href="mailto:Tallen.Clutter@gmail.com">Tallen.Clutter@gmail.com</a>
-                <p style="margin-top: 1rem;">Owensboro, KY<br>& Surrounding Areas</p>
+                <p style="margin-top: 0.8rem;">Owensboro, KY<br>& Surrounding Areas</p>
             </div>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2025 Clutter Busters. All rights reserved.</p>
-            <p style="margin-top: 0.5rem;">Website by Local Developer</p>
+            <p style="margin-top: 0.3rem;">Website by Local Developer</p>
         </div>
     </footer>
 
@@ -1257,17 +995,7 @@
 
         setInterval(nextSlide, 4000);
 
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Photo upload file counter
+        // Photo upload counter
         document.getElementById('photos').addEventListener('change', function(e) {
             const fileCount = document.getElementById('fileCount');
             const files = e.target.files;
@@ -1285,12 +1013,10 @@
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
 
-                // Close all items
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
 
-                // Open clicked item if it wasn't active
                 if (!isActive) {
                     faqItem.classList.add('active');
                 }
