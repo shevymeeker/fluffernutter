@@ -420,6 +420,54 @@
             transform: scale(1.08) rotate(2deg);
         }
 
+        /* CLICKABLE MASCOT CTA */
+        .mascot-cta {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            margin: 3rem auto;
+            transition: transform 0.3s;
+        }
+
+        .mascot-cta:hover {
+            transform: scale(1.05);
+        }
+
+        .mascot-hero {
+            width: 280px;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.2));
+            transition: filter 0.3s;
+        }
+
+        .mascot-cta:hover .mascot-hero {
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));
+        }
+
+        .mascot-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+            width: 100%;
+        }
+
+        .mascot-overlay-text span {
+            display: block;
+            color: white;
+            font-weight: 900;
+            font-size: 1.6rem;
+            line-height: 1.3;
+            text-shadow:
+                2px 2px 4px rgba(0,0,0,0.8),
+                -1px -1px 2px rgba(0,0,0,0.6),
+                0 0 20px rgba(230, 57, 70, 0.8);
+            letter-spacing: -0.5px;
+        }
+
         .quote-form {
             display: flex;
             flex-direction: column;
@@ -1111,6 +1159,14 @@
                 padding: 2rem 1.5rem;
             }
 
+            .mascot-hero {
+                width: 220px;
+            }
+
+            .mascot-overlay-text span {
+                font-size: 1.3rem;
+            }
+
             .quick-btns {
                 flex-direction: column;
             }
@@ -1228,32 +1284,13 @@
             <h2>Get Your FREE Quote</h2>
             <p class="phone-display">(270) 315-2503</p>
 
-            <div class="mascot-card">
-                <a href="#home" style="display: block;">
-                    <img src="mascot.png" alt="Clutter Busters Mascot" class="mascot-image">
-                </a>
-
-                <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote-form" action="/thank-you">
-                    <input type="hidden" name="form-name" value="photo-quote" />
-
-                    <h3>Send Photos, Get a Quote!</h3>
-                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 0.5rem;">We'll email or text you back with your quote</p>
-
-                    <input type="text" name="customer-name" placeholder="Your Name" class="form-input" required />
-
-                    <input type="tel" name="customer-phone" placeholder="Your Phone Number" class="form-input" required />
-
-                    <input type="email" name="customer-email" placeholder="Your Email (optional)" class="form-input" />
-
-                    <label for="photos" class="photo-upload-label">
-                        📸 Upload Photos (Choose Multiple)
-                    </label>
-                    <input type="file" id="photos" name="photos[]" accept="image/*" multiple class="file-input-hidden" required />
-
-                    <div class="file-count" id="fileCount"></div>
-
-                    <button type="submit" class="submit-btn">SEND TO THERON!</button>
-                </form>
+            <!-- CLICKABLE MASCOT CTA -->
+            <div class="mascot-cta" onclick="openQuoteModal()">
+                <img src="mascot.png" alt="Clutter Busters Mascot" class="mascot-hero">
+                <div class="mascot-overlay-text">
+                    <span>Send a Pic for</span>
+                    <span>Your FREE Quote</span>
+                </div>
             </div>
 
             <div class="quick-btns">
@@ -1484,6 +1521,61 @@
         </div>
     </div>
 
+    <!-- QUOTE MODAL -->
+    <div id="quoteModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeQuoteModal()">&times;</button>
+
+            <div class="modal-header">
+                <h2>📸 Send Photos for Your FREE Quote</h2>
+                <p>Fill out the quick form below and Theron will get back to you with a personalized quote!</p>
+            </div>
+
+            <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" action="/thank-you">
+                <input type="hidden" name="form-name" value="photo-quote" />
+
+                <div class="quote-form">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" class="form-input" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" name="phone" class="form-input" placeholder="(270) 555-1234">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="email" class="form-input" placeholder="you@example.com">
+                    </div>
+
+                    <p style="color: var(--gray); font-size: 0.95rem; text-align: center; margin: -0.5rem 0 0.5rem;">
+                        * Please provide either phone or email
+                    </p>
+
+                    <div class="form-group">
+                        <label>Notes (Optional)</label>
+                        <textarea name="notes" class="form-input" rows="3" placeholder="Tell us about your project..."></textarea>
+                    </div>
+
+                    <label for="quotePhotos" class="photo-upload-label">
+                        📸 Upload Photos (Choose Multiple)
+                    </label>
+                    <input type="file" id="quotePhotos" name="photos[]" accept="image/*" multiple class="file-input-hidden" required />
+                    <div id="quoteFileCount" class="file-count"></div>
+
+                    <button type="submit" class="submit-btn">Send to Theron!</button>
+                </div>
+            </form>
+
+            <div class="modal-actions">
+                <a href="tel:2703152503" class="modal-btn call">📞 Call Instead</a>
+                <a href="sms:2703152503&body=Hi! I need a quote for junk removal." class="modal-btn text">💬 Text Instead</a>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Carousel
         let currentSlide = 0;
@@ -1504,9 +1596,26 @@
 
         setInterval(nextSlide, 4000);
 
-        // Photo upload counter
-        document.getElementById('photos').addEventListener('change', function(e) {
-            const fileCount = document.getElementById('fileCount');
+        // Quote Modal
+        function openQuoteModal() {
+            document.getElementById('quoteModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.getElementById('quoteModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeQuoteModal();
+            }
+        });
+
+        // Photo upload counter for quote modal
+        document.getElementById('quotePhotos').addEventListener('change', function(e) {
+            const fileCount = document.getElementById('quoteFileCount');
             const files = e.target.files;
 
             if (files.length > 0) {
@@ -1669,6 +1778,7 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeServiceModal();
+                closeQuoteModal();
             }
         });
     </script>
