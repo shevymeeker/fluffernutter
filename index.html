@@ -1233,21 +1233,26 @@
                     <img src="mascot.png" alt="Clutter Busters Mascot" class="mascot-image">
                 </a>
 
-                <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote-form">
+                <form name="photo-quote" method="POST" data-netlify="true" enctype="multipart/form-data" class="quote-form" action="/thank-you">
                     <input type="hidden" name="form-name" value="photo-quote" />
 
-                    <h3>Send a Pic, Get a Quote!</h3>
+                    <h3>Send Photos, Get a Quote!</h3>
+                    <p style="font-size: 0.9rem; color: var(--gray); margin-bottom: 0.5rem;">We'll email or text you back with your quote</p>
+
+                    <input type="text" name="customer-name" placeholder="Your Name" class="form-input" required />
 
                     <input type="tel" name="customer-phone" placeholder="Your Phone Number" class="form-input" required />
 
+                    <input type="email" name="customer-email" placeholder="Your Email (optional)" class="form-input" />
+
                     <label for="photos" class="photo-upload-label">
-                        📸 Choose Photos
+                        📸 Upload Photos (Choose Multiple)
                     </label>
-                    <input type="file" id="photos" name="photos" accept="image/*" multiple capture="environment" class="file-input-hidden" required />
+                    <input type="file" id="photos" name="photos[]" accept="image/*" multiple class="file-input-hidden" required />
 
                     <div class="file-count" id="fileCount"></div>
 
-                    <button type="submit" class="submit-btn">GET MY QUOTE!</button>
+                    <button type="submit" class="submit-btn">SEND TO THERON!</button>
                 </form>
             </div>
 
