@@ -1,0 +1,296 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║          🎨 WEBSITE TEMPLATE - SEARCH & REPLACE GUIDE                    ║
+║                                                                           ║
+║  Use Find & Replace (Ctrl+H or Cmd+H) in your text editor               ║
+║  to quickly customize this template for your business                    ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+📄 FILE: index.html (rename template-index.html → index.html)
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 1: BUSINESS NAME & BRANDING
+─────────────────────────────────
+
+Search for:          Clutter Busters
+Replace with:        [Your Business Name]
+
+Search for:          CLUTTER BUSTERS
+Replace with:        [YOUR BUSINESS NAME]
+
+Search for:          ClutterBusters
+Replace with:        [YourBusinessName]  (no spaces)
+
+Search for:          🏆
+Replace with:        [Your emoji] (or leave as is)
+                     Options: 🔧 🛠️ 💼 🏠 🚚 ⚡ 💡 🎨 🏗️ ⚙️
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 2: TAGLINE / SERVICE DESCRIPTION
+──────────────────────────────────────
+
+Search for:          Junk Removal & Property Services
+Replace with:        [Your Service Description]
+                     Examples:
+                     - "Plumbing & Heating Services"
+                     - "Landscaping & Lawn Care"
+                     - "Handyman & Repair Services"
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 3: CONTACT INFORMATION
+────────────────────────────
+
+Search for:          (270) 315-2503
+Replace with:        [Your Phone Number formatted: (555) 123-4567]
+
+Search for:          2703152503
+Replace with:        [Your Phone Number no spaces: 5551234567]
+
+Search for:          Tallen.Clutter@gmail.com
+Replace with:        [your@email.com]
+
+Search for:          Theron
+Replace with:        [Owner First Name]
+
+Search for:          Theron Allen
+Replace with:        [Owner Full Name]
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 4: LOCATION
+────────────────
+
+Search for:          Owensboro
+Replace with:        [Your City]
+
+Search for:          KY
+Replace with:        [Your State Code]  (e.g., CA, TX, NY)
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 5: COLORS (in the <style> section, around line 43-48)
+───────────────────────────────────────────────────────────
+
+Find this section:
+    :root {
+        --primary: #0f2b46;
+        --accent: #e63946;
+
+Replace with YOUR colors:
+    --primary: #[YOUR-COLOR];    ← Main brand color
+    --accent: #[YOUR-COLOR];     ← Accent/highlight color
+
+Popular color combos:
+    Blue Business:    --primary: #1e40af;  --accent: #3b82f6;
+    Green Business:   --primary: #065f46;  --accent: #10b981;
+    Purple Business:  --primary: #581c87;  --accent: #a855f7;
+    Orange Business:  --primary: #9a3412;  --accent: #f97316;
+    Red Business:     --primary: #991b1b;  --accent: #ef4444;
+
+Generate colors: https://coolors.co
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 6: LOGO/MASCOT IMAGE
+──────────────────────────
+
+Current file:        mascot.png
+
+Option A - Keep same filename:
+  → Just replace the mascot.png file with your logo
+
+Option B - Use different filename:
+  Search for:        mascot.png
+  Replace with:      [your-logo.png]
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 7: SERVICES (around line 1253-1278)
+─────────────────────────────────────────
+
+Find the services section:
+    <div class="service-card" data-service="junk-removal" onclick="openServiceModal(this)">
+        <h3>🗑️ Junk Removal</h3>
+    </div>
+
+Edit each service:
+    1. Change the emoji (🗑️ → your emoji)
+    2. Change the title text
+    3. Update data-service="" (keep it lowercase-with-dashes)
+
+You can have 4-8 services total.
+
+TO DELETE A SERVICE:
+  Delete the entire <div class="service-card">...</div> block
+
+TO ADD A SERVICE:
+  Copy and paste an existing service block and edit it
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 8: FAQ QUESTIONS (around line 1288-1346)
+──────────────────────────────────────────────
+
+Find each FAQ item:
+    <div class="faq-item">
+        <button class="faq-question">
+            <span>How quickly can you get to my location?</span>
+            <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+            <p>We typically offer same-day or next-day service...</p>
+        </div>
+    </div>
+
+Edit the:
+  - Question text in <span> inside .faq-question
+  - Answer text in <p> inside .faq-answer
+
+TO DELETE AN FAQ:
+  Delete the entire <div class="faq-item">...</div> block
+
+TO ADD AN FAQ:
+  Copy and paste an existing FAQ block and edit it
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 9: BUSINESS INFO IN FOOTER (around line 1425-1429)
+────────────────────────────────────────────────────────
+
+Search for:          Clutter Busters LLC
+Replace with:        [Your Legal Business Name]
+
+Search for:          KY-CB-2025-001
+Replace with:        [Your License Number]
+
+Search for:          XX-XXXXXXX
+Replace with:        [Your EIN] (or delete this line)
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 10: PAGE TITLE & DESCRIPTION (Lines 6-7)
+──────────────────────────────────────────────
+
+Line 6:
+<title>Clutter Busters | Junk Removal & Demolition in Owensboro, KY</title>
+
+Change to:
+<title>[Your Business] | [Services] in [City, State]</title>
+
+Line 7:
+<meta name="description" content="...">
+
+Write a 1-2 sentence description of your business (shows up in Google)
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 11: SCHEMA/SEO DATA (Lines 16-36)
+───────────────────────────────────────
+
+Update the JSON-LD structured data:
+  - "name": "Your Business Name"
+  - "telephone": "555-123-4567"
+  - "email": "your@email.com"
+  - "addressLocality": "Your City"
+  - "addressRegion": "YS" (state code)
+  - "founder" → "name": "Your Name"
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+📄 FILE: thank-you.html
+
+Search for:          Clutter Busters
+Replace with:        [Your Business Name]
+
+Search for:          Theron
+Replace with:        [Owner Name]
+
+Search for:          mascot.png
+Replace with:        [your-logo.png] (if you changed it)
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+📄 FILE: manifest.json
+
+Line 2:  "name": "Clutter Busters"
+         Replace with your business name
+
+Line 3:  "short_name": "ClutterBusters"
+         Replace with short version (max 12 chars)
+
+Line 7:  "src": "mascot.png"
+         Replace with your logo filename
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+✅ QUICK CHECKLIST
+─────────────────
+
+□ Renamed template-index.html → index.html
+□ Replaced business name (3 variations)
+□ Updated phone number (2 formats)
+□ Updated email address
+□ Updated city and state
+□ Changed brand colors
+□ Replaced logo/mascot image
+□ Edited all service cards
+□ Edited FAQ questions and answers
+□ Updated footer business info
+□ Updated page title and description
+□ Edited manifest.json
+□ Edited thank-you.html
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+🚀 DEPLOYMENT TO NETLIFY
+─────────────────────────
+
+1. Delete template-index.html (keep index.html)
+2. Make sure you have these files:
+   ✓ index.html
+   ✓ thank-you.html
+   ✓ manifest.json
+   ✓ logo.png (or mascot.png)
+
+3. Go to netlify.com and drag your folder to deploy
+   OR push to GitHub and connect Netlify to your repo
+
+4. Build settings:
+   Base directory:    [leave empty]
+   Build command:     [leave empty]
+   Publish directory: /
+
+5. After deployment, go to Forms tab to enable email notifications
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+💡 PRO TIPS
+───────────
+
+• Use VS Code's "Replace All" feature (Ctrl+Shift+H)
+• Test locally by opening index.html in your browser
+• Forms only work after deploying to Netlify (not locally)
+• Keep a copy of this template for your next business site!
+• Add real photos by replacing the carousel placeholder divs
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+Need help? Re-read TEMPLATE-SETUP.md for detailed instructions!
