@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Generator - Create Your Business Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            color: #718096;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: #f7fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="color"],
+        textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .color-input-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .color-preview {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .color-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .service-item,
+        .faq-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 2px solid #e2e8f0;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1rem;
+        }
+
+        .add-btn,
+        .remove-btn {
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .add-btn {
+            background: #48bb78;
+            color: white;
+        }
+
+        .add-btn:hover {
+            background: #38a169;
+        }
+
+        .remove-btn {
+            background: #f56565;
+            color: white;
+        }
+
+        .remove-btn:hover {
+            background: #e53e3e;
+        }
+
+        .file-upload {
+            border: 3px dashed #cbd5e0;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .file-upload:hover {
+            border-color: #667eea;
+            background: #f7fafc;
+        }
+
+        .file-upload.has-file {
+            border-color: #48bb78;
+            background: #f0fff4;
+        }
+
+        .logo-preview {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 1rem auto;
+            display: none;
+        }
+
+        .logo-preview.show {
+            display: block;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.3s;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .help-text {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 0.3rem;
+        }
+
+        .emoji-hint {
+            font-size: 0.85rem;
+            color: #718096;
+            margin-top: 0.3rem;
+        }
+
+        .progress {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #edf2f7;
+            border-radius: 8px;
+            text-align: center;
+            color: #4a5568;
+        }
+
+        .progress.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Website Generator</h1>
+        <p class="subtitle">Fill out the form below and generate a complete, ready-to-deploy website in seconds!</p>
+
+        <form id="generatorForm">
+            <!-- BUSINESS INFO -->
+            <div class="section">
+                <h2>📋 Business Information</h2>
+
+                <div class="form-group">
+                    <label>Business Name *</label>
+                    <input type="text" id="businessName" required placeholder="e.g., Green Thumb Landscaping">
+                </div>
+
+                <div class="form-group">
+                    <label>Tagline / Service Description *</label>
+                    <input type="text" id="tagline" required placeholder="e.g., Professional Lawn Care & Landscaping">
+                </div>
+
+                <div class="form-group">
+                    <label>Owner Name *</label>
+                    <input type="text" id="ownerName" required placeholder="e.g., John Smith">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                    <p class="help-text">Format: (555) 123-4567</p>
+                </div>
+
+                <div class="form-group">
+                    <label>Email Address *</label>
+                    <input type="email" id="email" required placeholder="info@yourbusiness.com">
+                </div>
+
+                <div class="form-group">
+                    <label>City *</label>
+                    <input type="text" id="city" required placeholder="e.g., Louisville">
+                </div>
+
+                <div class="form-group">
+                    <label>State (2 letters) *</label>
+                    <input type="text" id="state" required placeholder="e.g., KY" maxlength="2">
+                </div>
+            </div>
+
+            <!-- BRAND COLORS -->
+            <div class="section">
+                <h2>🎨 Brand Colors</h2>
+
+                <div class="color-input-group">
+                    <div class="form-group">
+                        <label>Primary Color (Main Brand)</label>
+                        <div class="color-preview">
+                            <input type="color" id="primaryColor" value="#0f2b46">
+                            <div class="color-box" id="primaryPreview" style="background: #0f2b46;"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Accent Color (Highlights)</label>
+                        <div class="color-preview">
+                            <input type="color" id="accentColor" value="#e63946">
+                            <div class="color-box" id="accentPreview" style="background: #e63946;"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="help-text">Try coolors.co for color palette inspiration</p>
+            </div>
+
+            <!-- LOGO -->
+            <div class="section">
+                <h2>🖼️ Logo / Mascot</h2>
+
+                <div class="file-upload" id="fileUpload">
+                    <p style="font-size: 3rem; margin-bottom: 0.5rem;">📸</p>
+                    <p style="font-weight: 600; margin-bottom: 0.5rem;">Click to upload your logo</p>
+                    <p class="help-text">PNG or JPG, 500x500px recommended</p>
+                    <input type="file" id="logoFile" accept="image/*" style="display: none;">
+                </div>
+                <img id="logoPreview" class="logo-preview">
+            </div>
+
+            <!-- SERVICES -->
+            <div class="section">
+                <h2>🛠️ Services (Up to 8)</h2>
+                <div id="servicesContainer">
+                    <!-- Services will be added here -->
+                </div>
+                <button type="button" class="add-btn" onclick="addService()">+ Add Service</button>
+                <p class="emoji-hint">Emoji ideas: 🗑️ 🚚 🔨 🚿 🌳 🔧 🏠 🏡 🧹 🪴 ⚡ 💡 🎨 📦 🏗️</p>
+            </div>
+
+            <!-- FAQ -->
+            <div class="section">
+                <h2>❓ FAQ Questions</h2>
+                <div id="faqContainer">
+                    <!-- FAQs will be added here -->
+                </div>
+                <button type="button" class="add-btn" onclick="addFAQ()">+ Add FAQ</button>
+            </div>
+
+            <!-- BUSINESS DETAILS -->
+            <div class="section">
+                <h2>📄 Business Details (Optional)</h2>
+
+                <div class="form-group">
+                    <label>Legal Business Name</label>
+                    <input type="text" id="legalName" placeholder="e.g., Green Thumb LLC">
+                </div>
+
+                <div class="form-group">
+                    <label>License Number</label>
+                    <input type="text" id="license" placeholder="e.g., KY-GT-2025-001">
+                </div>
+
+                <div class="form-group">
+                    <label>EIN</label>
+                    <input type="text" id="ein" placeholder="e.g., XX-XXXXXXX">
+                </div>
+            </div>
+
+            <!-- GENERATE BUTTON -->
+            <button type="submit" class="generate-btn">🚀 Generate My Website</button>
+            <div class="progress" id="progress">
+                Generating your website... Please wait...
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+        let logoData = null;
+        let logoFilename = 'logo.png';
+
+        // Color preview updates
+        document.getElementById('primaryColor').addEventListener('input', (e) => {
+            document.getElementById('primaryPreview').style.background = e.target.value;
+        });
+
+        document.getElementById('accentColor').addEventListener('input', (e) => {
+            document.getElementById('accentPreview').style.background = e.target.value;
+        });
+
+        // Logo upload
+        document.getElementById('fileUpload').addEventListener('click', () => {
+            document.getElementById('logoFile').click();
+        });
+
+        document.getElementById('logoFile').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                logoFilename = 'logo.png';
+                const reader = new FileReader();
+                reader.onload = (event) => {
+                    logoData = event.target.result;
+                    const preview = document.getElementById('logoPreview');
+                    preview.src = logoData;
+                    preview.classList.add('show');
+                    document.getElementById('fileUpload').classList.add('has-file');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Add initial services
+        for (let i = 0; i < 3; i++) {
+            addService();
+        }
+
+        // Add initial FAQs
+        for (let i = 0; i < 3; i++) {
+            addFAQ();
+        }
+
+        function addService() {
+            const container = document.getElementById('servicesContainer');
+            const index = container.children.length;
+
+            const div = document.createElement('div');
+            div.className = 'service-item';
+            div.innerHTML = `
+                <div class="service-grid">
+                    <input type="text" placeholder="🔧" maxlength="2" class="service-icon" style="text-align: center; font-size: 1.5rem;">
+                    <input type="text" placeholder="Service Name" class="service-title">
+                </div>
+                <button type="button" class="remove-btn" onclick="this.parentElement.remove()" style="margin-top: 0.5rem;">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        function addFAQ() {
+            const container = document.getElementById('faqContainer');
+
+            const div = document.createElement('div');
+            div.className = 'faq-item';
+            div.innerHTML = `
+                <div class="form-group">
+                    <input type="text" placeholder="Question?" class="faq-question">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Answer" class="faq-answer"></textarea>
+                </div>
+                <button type="button" class="remove-btn" onclick="this.parentElement.remove()">Remove</button>
+            `;
+            container.appendChild(div);
+        }
+
+        // Form submission
+        document.getElementById('generatorForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            if (!logoData) {
+                alert('Please upload a logo before generating your site!');
+                return;
+            }
+
+            document.getElementById('progress').classList.add('show');
+
+            // Collect form data
+            const data = {
+                businessName: document.getElementById('businessName').value,
+                tagline: document.getElementById('tagline').value,
+                ownerName: document.getElementById('ownerName').value,
+                phone: document.getElementById('phone').value,
+                phoneRaw: document.getElementById('phone').value.replace(/\D/g, ''),
+                email: document.getElementById('email').value,
+                city: document.getElementById('city').value,
+                state: document.getElementById('state').value,
+                primaryColor: document.getElementById('primaryColor').value,
+                accentColor: document.getElementById('accentColor').value,
+                legalName: document.getElementById('legalName').value || document.getElementById('businessName').value + ' LLC',
+                license: document.getElementById('license').value || 'LICENSE-NUMBER',
+                ein: document.getElementById('ein').value || 'XX-XXXXXXX',
+                services: [],
+                faqs: []
+            };
+
+            // Collect services
+            document.querySelectorAll('.service-item').forEach(item => {
+                const icon = item.querySelector('.service-icon').value;
+                const title = item.querySelector('.service-title').value;
+                if (icon && title) {
+                    data.services.push({ icon, title });
+                }
+            });
+
+            // Collect FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question').value;
+                const answer = item.querySelector('.faq-answer').value;
+                if (question && answer) {
+                    data.faqs.push({ question, answer });
+                }
+            });
+
+            // Generate files
+            setTimeout(() => {
+                generateAndDownload(data);
+            }, 500);
+        });
+
+        async function generateAndDownload(data) {
+            const zip = new JSZip();
+
+            // Generate index.html (template will be inserted here)
+            const indexHTML = generateIndexHTML(data);
+            zip.file('index.html', indexHTML);
+
+            // Generate thank-you.html
+            const thankYouHTML = generateThankYouHTML(data);
+            zip.file('thank-you.html', thankYouHTML);
+
+            // Generate manifest.json
+            const manifest = generateManifest(data);
+            zip.file('manifest.json', manifest);
+
+            // Add logo
+            const logoBlob = await fetch(logoData).then(r => r.blob());
+            zip.file(logoFilename, logoBlob);
+
+            // Generate setup instructions
+            const readme = generateReadme(data);
+            zip.file('SETUP-INSTRUCTIONS.txt', readme);
+
+            // Download ZIP
+            zip.generateAsync({ type: 'blob' }).then(blob => {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = data.businessName.replace(/\s+/g, '-').toLowerCase() + '-website.zip';
+                a.click();
+
+                document.getElementById('progress').classList.remove('show');
+                alert('✅ Your website has been generated and downloaded!\n\nExtract the ZIP file and follow the SETUP-INSTRUCTIONS.txt to deploy.');
+            });
+        }
+
+        function generateIndexHTML(data) {
+            // This will be the full template with replacements
+            return `<!-- Generated website content will be here -->`;
+        }
+
+        function generateThankYouHTML(data) {
+            return `<!-- Thank you page content -->`;
+        }
+
+        function generateManifest(data) {
+            return JSON.stringify({
+                "name": data.businessName,
+                "short_name": data.businessName.replace(/\s+/g, ''),
+                "start_url": "/",
+                "display": "standalone",
+                "background_color": data.primaryColor,
+                "theme_color": data.primaryColor,
+                "icons": [
+                    {
+                        "src": logoFilename,
+                        "sizes": "192x192",
+                        "type": "image/png"
+                    },
+                    {
+                        "src": logoFilename,
+                        "sizes": "512x512",
+                        "type": "image/png"
+                    }
+                ]
+            }, null, 2);
+        }
+
+        function generateReadme(data) {
+            return `🚀 ${data.businessName} Website - Setup Instructions
+
+Your website has been generated and is ready to deploy!
+
+📦 FILES INCLUDED:
+- index.html          Your complete website
+- thank-you.html      Form success page
+- manifest.json       Mobile app configuration
+- ${logoFilename}          Your business logo
+
+🚀 DEPLOY TO NETLIFY:
+
+1. Go to https://app.netlify.com
+2. Sign up or log in
+3. Drag this entire folder to the deploy area
+4. Wait 30 seconds for deployment
+5. Your site is live!
+
+📧 ENABLE FORM NOTIFICATIONS:
+
+1. In Netlify dashboard, click "Forms"
+2. Submit a test quote on your site
+3. Go to Forms → Settings & Usage
+4. Add Email Notification
+5. Select "photo-quote" form
+6. Enter your email: ${data.email}
+
+✅ YOU'RE DONE!
+
+Your professional website is now live and ready to accept quote requests!
+
+Need help? Check Netlify docs: https://docs.netlify.com
+`;
+        }
+    </script>
+</body>
+</html>
